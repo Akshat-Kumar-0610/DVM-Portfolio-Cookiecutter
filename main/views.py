@@ -28,13 +28,11 @@ def get_member(request,pk):
 
 
 @api_view(['GET'])
-def blog_detail(request, **kwargs):
+def blog_detail(request, pk):
 	data = request.data
-	blog = BlogPost.objects.filter(id=kwargs['pk'])
-	if blog.exists():
-		blog_serializer = BlogPostSerializer(blog)
-		return Response(blog_serializer.data, status=status.HTTP_200_OK)
-	else:
-		return Response({"error":"blog not found"},status=status.HTTP_404_NOT_FOUND)	
+	blog = BlogPost.objects.get(pk=pk)
+	blog_serializer = BlogPostSerializer(blog)
+	return Response(blog_serializer.data, status=status.HTTP_200_OK)
+		
 
 
