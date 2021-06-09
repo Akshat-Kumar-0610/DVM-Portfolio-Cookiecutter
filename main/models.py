@@ -36,7 +36,7 @@ class BlogPost(models.Model):
 	read_time = models.CharField(max_length=100)
 	about = models.TextField()
 	blogLink = models.URLField()
-	type_ = models.CharField(max_length=200,choices=types,default='blog')
+	type_f = models.CharField(max_length=200,choices=types,default='blog')
 
 class Projects(models.Model):
 	name = models.CharField(max_length=250)
