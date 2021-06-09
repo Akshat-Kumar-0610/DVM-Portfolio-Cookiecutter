@@ -7,7 +7,6 @@ from django.utils import timezone
 class Member(models.Model):
 	teams = [('Backend','Backend'),
 	('Frontend','Frontend'),
-	('UI/UX','UI/UX'),
 	('Video','Video'),
 	('Design','Design'),
 	('AppDev','AppDev')
@@ -29,6 +28,7 @@ class Member(models.Model):
 	is_Por_holder = models.BooleanField()
 
 class BlogPost(models.Model):
+	types = [('blog','blog'),('artwork','artwork')]
 	title = models.CharField(max_length=300)
 	author = models.ForeignKey(User,on_delete=models.CASCADE)
 	datePublished = models.DateTimeField(default=timezone.now)
@@ -36,3 +36,12 @@ class BlogPost(models.Model):
 	read_time = models.CharField(max_length=100)
 	about = models.TextField()
 	blogLink = models.URLField()
+	type_ = models.CharField(max_length=200,choices=types,default='blog')
+
+class Projects(models.Model):
+	name = models.CharField(max_length=250)
+	teamsInvolved = models.CharField(max_length=400) #Change to choices if needed
+	date = models.DateTimeField()
+	description = models.TextField()
+	heroSectionImageLink = models.URLField()
+
