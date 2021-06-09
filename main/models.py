@@ -27,6 +27,10 @@ class Member(models.Model):
 	designation = models.CharField(max_length=250,null=True,blank=True)
 	is_Por_holder = models.BooleanField()
 
+	def __str__(self):
+		return '{}----{}----{}'.format(self.name, self.team, self.pk)
+
+
 class BlogPost(models.Model):
 	types = [('blog','blog'),('artwork','artwork')]
 	title = models.CharField(max_length=300)
@@ -38,10 +42,16 @@ class BlogPost(models.Model):
 	blogLink = models.URLField()
 	type_f = models.CharField(max_length=200,choices=types,default='blog')
 
+	def __str__(self):
+		return '{}----{}----{}'.format(self.title, self.type_f, self.pk)
+
 class Projects(models.Model):
 	name = models.CharField(max_length=250)
 	teamsInvolved = models.CharField(max_length=400) #Change to choices if needed
 	date = models.DateTimeField()
 	description = models.TextField()
 	heroSectionImageLink = models.URLField()
+
+	def __str__(self):
+		return '{}----{}----{}'.format(self.name, self.teamsInvolved, self.pk)
 
