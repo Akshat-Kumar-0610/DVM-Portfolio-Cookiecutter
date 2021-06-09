@@ -36,7 +36,7 @@ class BlogPostSerializer(serializers.Serializer):
 	blogLink = serializers.URLField()
 	type_ = serializers.CharField(max_length=200,default='blog')
 
-class Projects(serializers.Serializer):
+class ProjectsSerializer(serializers.Serializer):
 	name = serializers.CharField(max_length=250)
 	teamsInvolved = serializers.CharField(max_length=400) #Change to choices if needed
 	date = serializers.DateTimeField()
