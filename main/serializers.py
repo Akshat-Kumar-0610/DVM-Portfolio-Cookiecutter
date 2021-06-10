@@ -33,8 +33,17 @@ class BlogPostSerializer(serializers.Serializer):
 	blogImageLink = serializers.URLField()
 	read_time = serializers.CharField(max_length=100)
 	about = serializers.CharField(style={'base_template': 'textarea.html'})
-	blogLink = serializers.URLField()
+	blogLink = serializers.URLField(allow_null=True)
+	artistName = serializers.CharField(max_length=250,allow_null=True)
+	ArtLink = serializers.URLField(allow_null=True)
+	DribbleLink = serializers.URLField(allow_null=True)
+	BehanceLink = serializers.URLField(allow_null=True)
+	InstagramLink = serializers.URLField(allow_null=True)
+	LinkedInLink = serializers.URLField(allow_null=True)
+	GithubLink = serializers.URLField(allow_null=True)
+	otherLinks = serializers.CharField(style={'base_template': 'textarea.html'},allow_null=True)
 	type_ = serializers.CharField(max_length=200,default='blog')
+
 
 class ProjectsSerializer(serializers.Serializer):
 	name = serializers.CharField(max_length=250)
@@ -42,9 +51,3 @@ class ProjectsSerializer(serializers.Serializer):
 	date = serializers.DateTimeField()
 	description = serializers.CharField(style={'base_template': 'textarea.html'})
 	heroSectionImageLink = serializers.URLField()
-	artistName = serializers.CharField(max_length=250,allow_null=True)
-	DribbleLink = serializers.URLField(allow_null=True)
-	BehanceLink = serializers.URLField(allow_null=True)
-	InstagramLink = serializers.URLField(allow_null=True)
-	LinkedInLink = serializers.URLField(allow_null=True)
-	GithubLink = serializers.URLField(allow_null=True)

@@ -40,6 +40,14 @@ class BlogPost(models.Model):
 	read_time = models.CharField(max_length=100)
 	about = models.TextField()
 	blogLink = models.URLField()
+	artistName = models.CharField(max_length=250,null=True,blank=True)
+	ArtLink = models.URLField(null=True,blank=True)
+	DribbleLink = models.URLField(null=True,blank=True)
+	BehanceLink = models.URLField(null=True,blank=True)
+	InstagramLink = models.URLField(null=True,blank=True)
+	LinkedInLink = models.URLField(null=True,blank=True)
+	GithubLink = models.URLField(null=True,blank=True)
+	otherLinks = models.TextField(null=True,blank=True)
 	type_f = models.CharField(max_length=200,choices=types,default='blog')
 
 	def __str__(self):
@@ -51,12 +59,7 @@ class Project(models.Model):
 	date = models.DateTimeField()
 	description = models.TextField()
 	heroSectionImageLink = models.URLField()
-	artistName = models.CharField(max_length=250,null=True,blank=True)
-	DribbleLink = models.URLField(null=True,blank=True)
-	BehanceLink = models.URLField(null=True,blank=True)
-	InstagramLink = models.URLField(null=True,blank=True)
-	LinkedInLink = models.URLField(null=True,blank=True)
-	GithubLink = models.URLField(null=True,blank=True)
+
 
 
 
