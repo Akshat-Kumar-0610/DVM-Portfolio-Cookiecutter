@@ -47,10 +47,18 @@ class BlogPost(models.Model):
 
 class Project(models.Model):
 	name = models.CharField(max_length=250)
-	teamsInvolved = models.CharField(max_length=400) #Change to choices if needed
+	teamsInvolved = models.CharField(max_length=400,null=True,blank=True) #Change to choices if needed
 	date = models.DateTimeField()
 	description = models.TextField()
 	heroSectionImageLink = models.URLField()
+	artistName = models.CharField(max_length=250,null=True,blank=True)
+	DribbleLink = models.URLField(null=True,blank=True)
+	BehanceLink = models.URLField(null=True,blank=True)
+	InstagramLink = models.URLField(null=True,blank=True)
+	LinkedInLink = models.URLField(null=True,blank=True)
+	GithubLink = models.URLField(null=True,blank=True)
+
+
 
 	def __str__(self):
 		return '{}----{}----{}'.format(self.name, self.teamsInvolved, self.pk)
