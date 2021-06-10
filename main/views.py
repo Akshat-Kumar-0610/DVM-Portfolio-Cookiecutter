@@ -36,3 +36,20 @@ def blog_detail(request, pk):
 		
 
 
+@api_view(['GET'])
+def get_project(request, **kwargs):
+	try:
+		project = Projects.objects.get(id = kwargs["pk"])
+		project_serializer = ProjectsSerializer(project)
+		return Response(project_serializer.data, status = status.HTTP_200_OK)
+	except:
+		return Response({"error" : "project not found"}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def get_projects(request):
+	try:
+		projects = Projects.objects.all()
+		projects_serializer = ProjectsSerializer(projects,many=True)
+		return Response(projects_serializer.data, status=status.HTTP_200_OK)
+	except:
+		return Response({"error":"projects not found"}, status=status.HTTP_404_NOT_FOUND)
