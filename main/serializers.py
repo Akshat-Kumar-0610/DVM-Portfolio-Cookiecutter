@@ -48,6 +48,14 @@ class BlogPostSerializer(serializers.Serializer):
 class ProjectsSerializer(serializers.Serializer):
 	name = serializers.CharField(max_length=250)
 	teamsInvolved = serializers.CharField(max_length=400) #Change to choices if needed
-	date = serializers.DateTimeField()
-	description = serializers.CharField(style={'base_template': 'textarea.html'})
 	heroSectionImageLink = serializers.URLField()
+	website_link = serializers.URLField()
+	date = serializers.CharField(max_length=500)
+	text_1 = serializers.CharField(style={'base_template': 'textarea.html'})
+	text_2 = serializers.CharField(style={'base_template': 'textarea.html'})
+	long_images_link = serializers.URLField()
+	mockups_link = serializers.URLField()
+	page_link = serializers.URLField()
+	
+
+	

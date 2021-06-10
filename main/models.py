@@ -56,9 +56,15 @@ class BlogPost(models.Model):
 class Project(models.Model):
 	name = models.CharField(max_length=250)
 	teamsInvolved = models.CharField(max_length=400,null=True,blank=True) #Change to choices if needed
-	date = models.DateTimeField()
-	description = models.TextField()
 	heroSectionImageLink = models.URLField()
+	website_link = models.URLField()
+	date = models.CharField(max_length=500)
+	text_1 = models.TextField()
+	text_2 = models.TextField()
+	long_images_link = models.URLField()
+	mockups_link = models.URLField()
+	page_link = models.URLField()
+
 
 
 
