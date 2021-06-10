@@ -34,7 +34,7 @@ class Member(models.Model):
 class BlogPost(models.Model):
 	types = [('blog','blog'),('artwork','artwork')]
 	title = models.CharField(max_length=300)
-	author = models.ForeignKey(User,on_delete=models.CASCADE)
+	author = models.CharField(max_length=300)
 	datePublished = models.DateTimeField(default=timezone.now)
 	blogImageLink = models.URLField()
 	read_time = models.CharField(max_length=100)
@@ -45,7 +45,7 @@ class BlogPost(models.Model):
 	def __str__(self):
 		return '{}----{}----{}'.format(self.title, self.type_f, self.pk)
 
-class Projects(models.Model):
+class Project(models.Model):
 	name = models.CharField(max_length=250)
 	teamsInvolved = models.CharField(max_length=400) #Change to choices if needed
 	date = models.DateTimeField()

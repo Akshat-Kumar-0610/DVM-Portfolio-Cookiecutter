@@ -28,7 +28,7 @@ class MemberSerializer(serializers.Serializer):
 
 class BlogPostSerializer(serializers.Serializer):
 	title = serializers.CharField(max_length=300)
-	author = UserSerializer(read_only=True)
+	author = serializers.CharField(max_length=100)
 	datePublished = serializers.DateTimeField(default=timezone.now)
 	blogImageLink = serializers.URLField()
 	read_time = serializers.CharField(max_length=100)
