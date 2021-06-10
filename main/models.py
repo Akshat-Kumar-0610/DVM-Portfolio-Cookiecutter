@@ -33,11 +33,11 @@ class Member(models.Model):
 
 class BlogPost(models.Model):
 	types = [('blog','blog'),('artwork','artwork')]
-	title = models.CharField(max_length=300)
-	author = models.CharField(max_length=300)
+	title = models.CharField(max_length=300,null=True,blank=True)
+	author = models.CharField(max_length=300,null=True,blank=True)
 	datePublished = models.DateTimeField(default=timezone.now)
 	blogImageLink = models.URLField()
-	read_time = models.CharField(max_length=100)
+	read_time = models.CharField(max_length=100,null=True,blank=True)
 	about = models.TextField()
 	blogLink = models.URLField()
 	artistName = models.CharField(max_length=250,null=True,blank=True)
